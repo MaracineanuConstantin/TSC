@@ -1,0 +1,108 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/LabTSC/lab2
+vinstr_register
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 DXx4 work 18 instr_register_pkg 0 22 7MS1YioGBPj17@1KJBn0b1
+!s110 1709103801
+!i10b 1
+!s100 dB^k@BKhNZTOZmVmIGTYY2
+IUO2[ZY8h:W5?ak>Q>;`IY0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 instr_register_sv_unit
+S1
+R0
+w1614777442
+8D:/LabTSC/lab2/lab_dut/instr_register.sv
+FD:/LabTSC/lab2/lab_dut/instr_register.sv
+L0 9
+Z4 OV;L;10.5c;63
+r1
+!s85 0
+31
+!s108 1709103801.000000
+!s107 D:/LabTSC/lab2/lab_dut/instr_register.sv|
+!s90 -reportprogress|300|-work|work|D:/LabTSC/lab2/lab_dut/instr_register.sv|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+Xinstr_register_pkg
+R1
+!s110 1709103798
+!i10b 1
+!s100 cT1bi^dBcY4oJ4Q=9_`820
+I7MS1YioGBPj17@1KJBn0b1
+V7MS1YioGBPj17@1KJBn0b1
+S1
+R0
+w1709103787
+8D:/LabTSC/lab2/lab_dut/instr_register_pkg.sv
+FD:/LabTSC/lab2/lab_dut/instr_register_pkg.sv
+L0 5
+R4
+r1
+!s85 0
+31
+!s108 1709103798.000000
+!s107 D:/LabTSC/lab2/lab_dut/instr_register_pkg.sv|
+!s90 -reportprogress|300|-work|work|D:/LabTSC/lab2/lab_dut/instr_register_pkg.sv|
+!i113 1
+R5
+R6
+vinstr_register_test
+R1
+R2
+!s110 1709103813
+!i10b 1
+!s100 @N=XOV`;[WWiI<;VY_SjA2
+IQh8FoLQGl>Bg]Hjn]9BPN2
+R3
+!s105 instr_register_test_sv_unit
+S1
+R0
+w1614777408
+8D:/LabTSC/lab2/lab01_testbench-interface/instr_register_test.sv
+FD:/LabTSC/lab2/lab01_testbench-interface/instr_register_test.sv
+L0 8
+R4
+r1
+!s85 0
+31
+!s108 1709103813.000000
+!s107 D:/LabTSC/lab2/lab01_testbench-interface/instr_register_test.sv|
+!s90 -reportprogress|300|-work|work|D:/LabTSC/lab2/lab01_testbench-interface/instr_register_test.sv|
+!i113 1
+R5
+R6
+vtop
+R1
+R2
+!s110 1709103816
+!i10b 1
+!s100 Pg=M]M2k<1Dk;?TFRVBCm1
+I>]L=c[I]o57jH[n^=lcmc2
+R3
+!s105 top_sv_unit
+S1
+R0
+w1709103744
+8D:/LabTSC/lab2/lab01_testbench-interface/top.sv
+FD:/LabTSC/lab2/lab01_testbench-interface/top.sv
+L0 5
+R4
+r1
+!s85 0
+31
+!s108 1709103816.000000
+!s107 D:/LabTSC/lab2/lab01_testbench-interface/top.sv|
+!s90 -reportprogress|300|-work|work|D:/LabTSC/lab2/lab01_testbench-interface/top.sv|
+!i113 1
+R5
+R6
