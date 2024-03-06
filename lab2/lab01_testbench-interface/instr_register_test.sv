@@ -4,7 +4,7 @@
  * with constrained random test generation, functional coverage, and
  * a scoreboard for self-verification.
  **********************************************************************/
-
+// aici e output/input si in DUT e declarat invers, input/output
 module instr_register_test
   import instr_register_pkg::*;  // user-defined types are defined in instr_register_pkg.sv
   (input  logic          clk,
@@ -19,8 +19,10 @@ module instr_register_test
   );
 
   timeunit 1ns/1ns;
-
+  parameter WRITE_NUMBER = 20;
+  parameter READ_NUMBER = 20;
   int seed = 555;
+  instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
   initial begin
     $display("\n\n***********************************************************");
@@ -39,15 +41,18 @@ module instr_register_test
 
     $display("\nWriting values to register stack...");
     @(posedge clk) load_en = 1'b1;  // enable writing to register
-    repeat (3) begin
+    // repeat (3) begin MARACINEANU CONSTANTIN MODIFICARE
+    repeat (WRITE_NUMBER) begin
       @(posedge clk) randomize_transaction;
       @(negedge clk) print_transaction;
+      check_result;
+
     end
     @(posedge clk) load_en = 1'b0;  // turn-off writing to register
 
     // read back and display same three register locations
     $display("\nReading back the same register locations written...");
-    for (int i=0; i<=2; i++) begin
+    for (int i=0; i<=READ_NUMBER; i++) begin
       // later labs will replace this loop with iterating through a
       // scoreboard to determine which addresses were written and
       // the expected values to be read back
@@ -72,11 +77,12 @@ module instr_register_test
     // addresses of 0, 1 and 2.  This will be replaceed with randomizeed
     // write_pointer values in a later lab
     //
-    static int temp = 0;
+    static int temp = 0;                               // static pastreaza valoarea in memorie si poate fi modificata din alte locuri
     operand_a     <= $random(seed)%16;                 // between -15 and 15
-    operand_b     <= $unsigned($random)%16;            // between 0 and 15
+    operand_b     <= $unsigned($random)%16;            // between 0 and 15 - unsigned converteste din nr negativ in nr pozitiv
     opcode        <= opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
     write_pointer <= temp++;
+    iw_reg_test[temp] = '{opcode, operand_a, operand_b, 'b0};
   endfunction: randomize_transaction
 
   function void print_transaction;
@@ -90,7 +96,38 @@ module instr_register_test
     $display("Read from register location %0d: ", read_pointer);
     $display("  opcode = %0d (%s)", instruction_word.opc, instruction_word.opc.name);
     $display("  operand_a = %0d",   instruction_word.op_a);
-    $display("  operand_b = %0d\n", instruction_word.op_b);
+    $display("  operand_b = %0d", instruction_word.op_b);
+    $display("  rezultat = %0d\n", instruction_word.rezultat);
+
   endfunction: print_results
+
+  function void check_result;
+    static operand_t result = 0;
+    case(iw_reg_test[read_pointer].opc)
+          	ZERO:  result = 1'b0;
+            PASSA: result = iw_reg_test[read_pointer].op_a;
+            PASSB: result = iw_reg_test[read_pointer].op_b;
+            ADD:   result = iw_reg_test[read_pointer].op_a + iw_reg_test[read_pointer].op_b;
+            SUB:   result = iw_reg_test[read_pointer].op_a - iw_reg_test[read_pointer].op_b;
+            MULT:  result = iw_reg_test[read_pointer].op_a * iw_reg_test[read_pointer].op_b;
+            DIV:   begin
+                    if(iw_reg_test[read_pointer].op_b === 0)
+                      begin
+                        $display("a fost intampinata o exceptie, divizie cu 0");
+                        result = 0;
+                      end
+                    else
+                    result = iw_reg_test[read_pointer].op_a / iw_reg_test[read_pointer].op_b;
+                  end
+
+            MOD:   result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
+    endcase
+
+
+    if(instruction_result.rezultat === result)
+      $display("rezultatul este corect");
+    else
+      $display("rezultatul este incorect");
+  endfunction: check_result
 
 endmodule: instr_register_test
