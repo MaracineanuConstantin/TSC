@@ -45,8 +45,6 @@ module instr_register_test
     repeat (WRITE_NUMBER) begin
       @(posedge clk) randomize_transaction;
       @(negedge clk) print_transaction;
-      check_result;
-
     end
     @(posedge clk) load_en = 1'b0;  // turn-off writing to register
 
@@ -58,6 +56,7 @@ module instr_register_test
       // the expected values to be read back
       @(posedge clk) read_pointer = i;
       @(negedge clk) print_results;
+      check_result;
     end
 
     @(posedge clk) ;
@@ -104,7 +103,7 @@ module instr_register_test
   function void check_result;
     static operand_t result = 0;
     case(iw_reg_test[read_pointer].opc)
-          	ZERO:  result = 1'b0;
+          	ZERO:  result = {64{1'b0}};
             PASSA: result = iw_reg_test[read_pointer].op_a;
             PASSB: result = iw_reg_test[read_pointer].op_b;
             ADD:   result = iw_reg_test[read_pointer].op_a + iw_reg_test[read_pointer].op_b;
@@ -123,11 +122,14 @@ module instr_register_test
             MOD:   result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
     endcase
 
-
-    if(instruction_result.rezultat === result)
+    if(instruction_word.rezultat === result)
+    begin
       $display("rezultatul este corect");
+    end
     else
+    begin
       $display("rezultatul este incorect");
+    end
   endfunction: check_result
 
 endmodule: instr_register_test
