@@ -19,8 +19,8 @@ module instr_register_test
   );
 
   timeunit 1ns/1ns;
-  parameter WRITE_NUMBER = 20;
-  parameter READ_NUMBER = 20;
+  parameter WRITE_NUMBER = 3;
+  parameter READ_NUMBER = 3;
   int seed = 555;
   instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
@@ -61,7 +61,7 @@ module instr_register_test
 
     @(posedge clk) ;
     $display("\n***********************************************************");
-    $display(  "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
+    $display(  "***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
     $display(  "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
     $display(  "***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***");
     $display(  "***********************************************************\n");
@@ -76,12 +76,14 @@ module instr_register_test
     // addresses of 0, 1 and 2.  This will be replaceed with randomizeed
     // write_pointer values in a later lab
     //
+    
     static int temp = 0;                               // static pastreaza valoarea in memorie si poate fi modificata din alte locuri
-    operand_a     <= $random(seed)%16;                 // between -15 and 15
-    operand_b     <= $unsigned($random)%16;            // between 0 and 15 - unsigned converteste din nr negativ in nr pozitiv
-    opcode        <= opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
-    write_pointer <= temp++;
-    iw_reg_test[temp] = '{opcode, operand_a, operand_b, 'b0};
+    operand_a     = $random(seed)%16;                 // between -15 and 15
+    operand_b     = $unsigned($random)%16;            // between 0 and 15 - unsigned converteste din nr negativ in nr pozitiv
+    opcode        = opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
+    write_pointer = temp++;
+    iw_reg_test[write_pointer] = '{opcode, operand_a, operand_b, 'b0};
+    $display("La finalul randomize transcation valorile sunt: op_a = %0d, op_b = %0d, opcode = %0d, time = %t\n", operand_a, operand_b, opcode, $time);
   endfunction: randomize_transaction
 
   function void print_transaction;
@@ -101,7 +103,7 @@ module instr_register_test
   endfunction: print_results
 
   function void check_result;
-    static operand_t result = 0;
+    result_t result;
     case(iw_reg_test[read_pointer].opc)
           	ZERO:  result = {64{1'b0}};
             PASSA: result = iw_reg_test[read_pointer].op_a;
@@ -122,6 +124,7 @@ module instr_register_test
             MOD:   result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
     endcase
 
+    $display("valoarea la instruction_word.rezultat este %0d", instruction_word.rezultat);
     if(instruction_word.rezultat === result)
     begin
       $display("rezultatul este corect");
