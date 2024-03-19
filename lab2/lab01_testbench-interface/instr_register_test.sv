@@ -19,14 +19,21 @@ module instr_register_test
   );
 
   timeunit 1ns/1ns;
-  parameter WRITE_NUMBER = 3;
-  parameter READ_NUMBER = 3;
+
+  static int passed_tests = 0;
+  static int failed_tests = 0;
+  static int total_tests = 0;
+
+  parameter WRITE_NUMBER = 50;
+  parameter READ_NUMBER = 50;  
+  parameter WRITE_ORDER = 3;  // 1 = crescator, 2 = descrescator, 3 = random
+  parameter READ_ORDER = 3;   // 1 = crescator, 2 = descrescator, 3 = random
   int seed = 555;
   instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
   initial begin
     $display("\n\n***********************************************************");
-    $display(    "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
+    $display(    "***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU DON'T ***");
     $display(    "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
     $display(    "***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***");
     $display(    "***********************************************************");
@@ -50,18 +57,31 @@ module instr_register_test
 
     // read back and display same three register locations
     $display("\nReading back the same register locations written...");
-    for (int i=0; i<=READ_NUMBER; i++) begin
+    for (int i=0; i<READ_NUMBER; i++) begin
       // later labs will replace this loop with iterating through a
       // scoreboard to determine which addresses were written and
       // the expected values to be read back
-      @(posedge clk) read_pointer = i;
+      if(READ_ORDER == 1)
+        begin
+          read_pointer = i % 32;
+        end
+      else if (READ_ORDER == 2)
+        begin
+          read_pointer = 31 - (i % 32 );
+        end
+      else if (READ_ORDER == 3)
+        begin
+          read_pointer = $unsigned($random) % 32;
+        end
       @(negedge clk) print_results;
       check_result;
+
+      $display("There are %0d passed results and %0d failed results out of %0d total tests.", passed_tests, failed_tests, total_tests);
     end
 
     @(posedge clk) ;
     $display("\n***********************************************************");
-    $display(  "***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
+    $display(  "***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU DON'T***");
     $display(  "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
     $display(  "***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***");
     $display(  "***********************************************************\n");
@@ -77,13 +97,28 @@ module instr_register_test
     // write_pointer values in a later lab
     //
     
-    static int temp = 0;                               // static pastreaza valoarea in memorie si poate fi modificata din alte locuri
+    // Write_order = 1 - crescator, Write_order = 2 - descrescator, Write_order = 3 - random
+    if(WRITE_ORDER==1)
+      begin
+        static int temp = 0;     // static pastreaza valoarea in memorie si poate fi modificata din alte locuri
+        write_pointer = temp++;
+      end
+    else if (WRITE_ORDER==2)
+      begin
+      static int temp = 31;
+      write_pointer = temp--;
+      end
+    else if (WRITE_ORDER==3)
+      begin
+      static int temp = $unsigned($random) % 32;
+      end
+
     operand_a     = $random(seed)%16;                 // between -15 and 15
     operand_b     = $unsigned($random)%16;            // between 0 and 15 - unsigned converteste din nr negativ in nr pozitiv
     opcode        = opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
-    write_pointer = temp++;
     iw_reg_test[write_pointer] = '{opcode, operand_a, operand_b, 'b0};
-    $display("La finalul randomize transcation valorile sunt: op_a = %0d, op_b = %0d, opcode = %0d, time = %t\n", operand_a, operand_b, opcode, $time);
+    
+    $display("La finalul randomize transaction valorile sunt: op_a = %0d, op_b = %0d, opcode = %0d, time = %t\n", operand_a, operand_b, opcode, $time);
   endfunction: randomize_transaction
 
   function void print_transaction;
@@ -127,12 +162,17 @@ module instr_register_test
     $display("valoarea la instruction_word.rezultat este %0d", instruction_word.rezultat);
     if(instruction_word.rezultat === result)
     begin
+      passed_tests++;
+      total_tests++;
       $display("rezultatul este corect");
     end
     else
     begin
+      failed_tests++;
+      total_tests++;
       $display("rezultatul este incorect");
     end
+
   endfunction: check_result
 
 endmodule: instr_register_test
