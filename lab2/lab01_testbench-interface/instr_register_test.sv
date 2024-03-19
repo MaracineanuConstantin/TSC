@@ -25,7 +25,8 @@ module instr_register_test
   static int total_tests = 0;
 
   parameter WRITE_NUMBER = 50;
-  parameter READ_NUMBER = 50;  
+  parameter READ_NUMBER = 50;
+    
   parameter WRITE_ORDER = 3;  // 1 = crescator, 2 = descrescator, 3 = random
   parameter READ_ORDER = 3;   // 1 = crescator, 2 = descrescator, 3 = random
   int seed = 555;
@@ -159,7 +160,7 @@ module instr_register_test
             MOD:   result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
     endcase
 
-    $display("valoarea la instruction_word.rezultat este %0d", instruction_word.rezultat);
+    $display("valoarea la instruction_word.rezultat este %0d si valoarea in iw_reg_test este %0d", instruction_word.rezultat, result);
     if(instruction_word.rezultat === result)
     begin
       passed_tests++;
