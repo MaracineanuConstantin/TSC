@@ -27,8 +27,8 @@ module instr_register_test
   parameter WRITE_NUMBER = 50;
   parameter READ_NUMBER = 50;
     
-  parameter WRITE_ORDER = 3;  // 1 = crescator, 2 = descrescator, 3 = random
-  parameter READ_ORDER = 3;   // 1 = crescator, 2 = descrescator, 3 = random
+  parameter WRITE_ORDER = 1;  // 1 = crescator, 2 = descrescator, 3 = random
+  parameter READ_ORDER = 1;   // 1 = crescator, 2 = descrescator, 3 = random
   int seed = 555;
   instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
