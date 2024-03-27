@@ -5,6 +5,9 @@
  * a scoreboard for self-verification.
  **********************************************************************/
 // aici e output/input si in DUT e declarat invers, input/output
+
+// folosit cu fopen
+// regression.bat => call run_test.bat 5 5 1 1 case_inc gui
 module instr_register_test
   import instr_register_pkg::*;  // user-defined types are defined in instr_register_pkg.sv
   (input  logic          clk,
@@ -175,6 +178,9 @@ module instr_register_test
       total_tests++;
       $display("rezultatul este incorect");
     end
+
+
+  fopen("../reports/regression_transcript")
 
   endfunction: check_result
 
