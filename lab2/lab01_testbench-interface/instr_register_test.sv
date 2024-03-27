@@ -24,11 +24,13 @@ module instr_register_test
   static int failed_tests = 0;
   static int total_tests = 0;
 
-  parameter WRITE_NUMBER = 50;
-  parameter READ_NUMBER = 50;
+  parameter WR_NR = 50;
+  parameter RD_NR = 50;
     
   parameter WRITE_ORDER = 1;  // 1 = crescator, 2 = descrescator, 3 = random
   parameter READ_ORDER = 1;   // 1 = crescator, 2 = descrescator, 3 = random
+  
+
   int seed = 555;
   instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
@@ -50,7 +52,7 @@ module instr_register_test
     $display("\nWriting values to register stack...");
     @(posedge clk) load_en = 1'b1;  // enable writing to register
     // repeat (3) begin MARACINEANU CONSTANTIN MODIFICARE
-    repeat (WRITE_NUMBER) begin
+    repeat (WR_NR) begin
       @(posedge clk) randomize_transaction;
       @(negedge clk) print_transaction;
     end
@@ -58,7 +60,7 @@ module instr_register_test
 
     // read back and display same three register locations
     $display("\nReading back the same register locations written...");
-    for (int i=0; i<READ_NUMBER; i++) begin
+    for (int i=0; i<RD_NR; i++) begin
       // later labs will replace this loop with iterating through a
       // scoreboard to determine which addresses were written and
       // the expected values to be read back
