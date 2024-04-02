@@ -33,8 +33,12 @@ module instr_register_test
   parameter WRITE_ORDER = 1;  // 1 = crescator, 2 = descrescator, 3 = random
   parameter READ_ORDER = 1;   // 1 = crescator, 2 = descrescator, 3 = random
   
+  parameter TEST_CASE = "DEFAULT";
+  string TEST_CASE_RESULT = "default";
 
+  int file;
   int seed = 555;
+
   instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
   initial begin
@@ -84,6 +88,17 @@ module instr_register_test
 
       $display("There are %0d passed results and %0d failed results out of %0d total tests.", passed_tests, failed_tests, total_tests);
     end
+
+    if(failed_tests == 0)
+      TEST_CASE_RESULT = "passed";
+    else if(failed_tests != 0)
+      TEST_CASE_RESULT = "failed";
+    
+    // Scriere in fisierul regression_transcript.txt
+    file = $fopen("../reports/regression_transcript.txt", "a");
+    $fdisplay(file, "Test case: %s, test result: %s", TEST_CASE, TEST_CASE_RESULT);
+    $fdisplay(file, "There are %0d passed results and %0d failed results out of %0d total tests.", passed_tests, failed_tests, total_tests);
+    $fclose(file);
 
     @(posedge clk) ;
     $display("\n***********************************************************");
@@ -180,8 +195,7 @@ module instr_register_test
     end
 
 
-  fopen("../reports/regression_transcript")
-
   endfunction: check_result
+
 
 endmodule: instr_register_test
