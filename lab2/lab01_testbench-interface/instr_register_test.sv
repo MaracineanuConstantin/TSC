@@ -37,7 +37,8 @@ module instr_register_test
   string TEST_CASE_RESULT = "default";
 
   int file;
-  int seed = 555;
+  parameter SEED_VAL = 555;
+  int seed = SEED_VAL;
 
   instruction_t  iw_reg_test [0:31];  // an array of instruction_word structures
 
@@ -97,7 +98,7 @@ module instr_register_test
     // Scriere in fisierul regression_transcript.txt
     file = $fopen("../reports/regression_transcript.txt", "a");
     $fdisplay(file, "Test case: %s, test result: %s", TEST_CASE, TEST_CASE_RESULT);
-    $fdisplay(file, "There are %0d passed results and %0d failed results out of %0d total tests.", passed_tests, failed_tests, total_tests);
+    $fdisplay(file, "There are %0d passed VALUE results and %0d failed VALUE results out of %0d total VALUE tests.", passed_tests, failed_tests, total_tests);
     $fclose(file);
 
     @(posedge clk) ;

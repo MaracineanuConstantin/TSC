@@ -1,9 +1,20 @@
-call run_test.bat 5 5 1 1 test_inc_inc c
-call run_test.bat 5 5 1 2 test_inc_dec c
-call run_test.bat 5 5 1 3 test_inc_rnd c
-call run_test.bat 5 5 2 1 test_dec_inc c
-call run_test.bat 5 5 2 2 test_dec_dec c
-call run_test.bat 5 5 2 3 test_dec_rnd c
-call run_test.bat 5 5 3 1 test_rnd_inc c
-call run_test.bat 5 5 3 2 test_rnd_dec c
-call run_test.bat 5 5 3 3 test_rnd_rnd c
+@REM call run_test.bat 5 5 1 1 test_inc_inc c
+@REM call run_test.bat 5 5 1 2 test_inc_dec c
+@REM call run_test.bat 5 5 1 3 test_inc_rnd c
+@REM call run_test.bat 5 5 2 1 test_dec_inc c
+@REM call run_test.bat 5 5 2 2 test_dec_dec c
+@REM call run_test.bat 5 5 2 3 test_dec_rnd c
+@REM call run_test.bat 5 5 3 1 test_rnd_inc c
+@REM call run_test.bat 5 5 3 2 test_rnd_dec c
+@REM call run_test.bat 5 5 3 3 test_rnd_rnd c
+
+call run_test.bat 50 32 3 3 CASE1 c 2591348
+call run_test.bat 50 32 2 2 CASE2 c 3814247
+call run_test.bat 50 32 1 1 CASE3 c 1441851
+call run_test.bat 50 32 3 3 CASE4 c 353615
+call run_test.bat 50 32 2 2 CASE5 c 1642069
+call run_test.bat 50 32 3 3 CASE7 c 3336876
+call run_test.bat 50 32 1 1 CASE6 c 232598
+call run_test.bat 50 32 1 1 CASE9 c 3394932
+call run_test.bat 50 32 2 2 CASE8 c 2081524
+call run_test.bat 50 32 1 1 CASE10 c 49666
