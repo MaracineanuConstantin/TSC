@@ -38,8 +38,24 @@ import instr_register_pkg::*;  // user-defined types are defined in instr_regist
             ADD:   iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a + operand_b};
             SUB:   iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a - operand_b};
             MULT:  iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a * operand_b};
-            DIV:   iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a / operand_b};
-            MOD:   iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a % operand_b};
+            DIV:  begin   
+                  if(operand_b === 0)
+                    iw_reg[write_pointer] = '{opcode, operand_a, operand_b, {64{1'b0}}};
+                  else
+                    iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a / operand_b};
+                  end
+            MOD:  begin   
+                  if(operand_b === 0)
+                    iw_reg[write_pointer] = '{opcode, operand_a, operand_b, {64{1'b0}}};
+                  else
+                    iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a % operand_b};
+                  end
+            POW:  begin
+                    if(operand_a === 0)
+                      iw_reg[write_pointer] = '{opcode, operand_a, operand_b, {64{1'b0}}};
+                    else
+                      iw_reg[write_pointer] = '{opcode, operand_a, operand_b, operand_a ** operand_b};
+                  end
       endcase
     end
 

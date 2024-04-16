@@ -137,7 +137,7 @@ module instr_register_test
 
     operand_a     = $random(seed)%16;                 // between -15 and 15
     operand_b     = $unsigned($random)%16;            // between 0 and 15 - unsigned converteste din nr negativ in nr pozitiv
-    opcode        = opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
+    opcode        = opcode_t'($unsigned($random)%9);  // between 0 and 7, cast to opcode_t type
     iw_reg_test[write_pointer] = '{opcode, operand_a, operand_b, 'b0};
     
     $display("La finalul randomize transaction valorile sunt: op_a = %0d, op_b = %0d, opcode = %0d, time = %t\n", operand_a, operand_b, opcode, $time);
@@ -178,7 +178,19 @@ module instr_register_test
                     result = iw_reg_test[read_pointer].op_a / iw_reg_test[read_pointer].op_b;
                   end
 
-            MOD:   result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
+            MOD:   begin
+                    if(iw_reg_test[read_pointer].op_b === 0)
+                        result = 0;
+                    else
+                      result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
+                  end
+            POW:    begin
+                  if(iw_reg_test[read_pointer].op_a === 0)
+                    result = 0;
+                  else
+                    result = iw_reg_test[read_pointer].op_a ** iw_reg_test[read_pointer].op_b;
+                  end
+
     endcase
 
     $display("valoarea la instruction_word.rezultat este %0d si valoarea in iw_reg_test este %0d", instruction_word.rezultat, result);
@@ -192,7 +204,7 @@ module instr_register_test
     begin
       failed_tests++;
       total_tests++;
-      $display("rezultatul este incorect");
+      $display("rezultatul de la timpul %t este incorect", $time);
     end
 
 
