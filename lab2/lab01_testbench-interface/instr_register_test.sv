@@ -55,7 +55,7 @@ module instr_register_test
     load_en        = 1'b0;          // initialize load control line
     reset_n       <= 1'b0;          // assert reset_n (active low)
     repeat (2) @(posedge clk) ;     // hold in reset for 2 clock cycles
-    reset_n        = 1'b1;          // deassert reset_n (active low)
+    reset_n        = 1'b0;          // deassert reset_n (active low)
 
     $display("\nWriting values to register stack...");
     @(posedge clk) load_en = 1'b1;  // enable writing to register
@@ -132,13 +132,13 @@ module instr_register_test
       end
     else if (WRITE_ORDER==3)
       begin
-      static int temp = $unsigned($random) % 32;
+      write_pointer = $unsigned($random) % 32;
       end
 
     operand_a     = $random(seed)%16;                 // between -15 and 15
     operand_b     = $unsigned($random)%16;            // between 0 and 15 - unsigned converteste din nr negativ in nr pozitiv
     opcode        = opcode_t'($unsigned($random)%9);  // between 0 and 7, cast to opcode_t type
-    iw_reg_test[write_pointer] = '{opcode, operand_a, operand_b, 'b0};
+    iw_reg_test[write_pointer] = '{opcode, operand_a, operand_b, {64{1'b0}}};
     
     $display("La finalul randomize transaction valorile sunt: op_a = %0d, op_b = %0d, opcode = %0d, time = %t\n", operand_a, operand_b, opcode, $time);
   endfunction: randomize_transaction
