@@ -54,8 +54,12 @@ module instr_register_test
     read_pointer   = 5'h1F;         // initialize read pointer
     load_en        = 1'b0;          // initialize load control line
     reset_n       <= 1'b0;          // assert reset_n (active low)
+    foreach (iw_reg_test[i])
+      begin
+        iw_reg_test[i] = '{opc: ZERO, default: 0};
+      end
     repeat (2) @(posedge clk) ;     // hold in reset for 2 clock cycles
-    reset_n        = 1'b0;          // deassert reset_n (active low)
+    reset_n        = 1'b1;          // deassert reset_n (active low)
 
     $display("\nWriting values to register stack...");
     @(posedge clk) load_en = 1'b1;  // enable writing to register
