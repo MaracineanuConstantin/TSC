@@ -1,0 +1,23 @@
+# 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 08:28:26 on Apr 17,2024
+# vlog -reportprogress 300 -sv -timescale 1ps/1ps -work work -f sources.txt 
+# -- Compiling package instr_register_pkg
+# -- Compiling module instr_register
+# -- Importing package instr_register_pkg
+# -- Compiling module instr_register_test
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 08:28:26 on Apr 17,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -quiet -coverage "+code=bcesft" "+notimingchecks" "+nowarnTSCALE" -sva top -GWR_NR=50 -GRD_NR=32 -GWRITE_ORDER=1 -GSEED_VAL=12345 -GTEST_CASE=CASECOVERAGE -GREAD_ORDER=1 
+# Start time: 08:28:27 on Apr 17,2024
+# ** Error: This product is not licensed for Code Coverage.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./run.do PAUSED at line 28
+# End time: 08:37:20 on Apr 17,2024, Elapsed time: 0:08:53
+# Errors: 0, Warnings: 0

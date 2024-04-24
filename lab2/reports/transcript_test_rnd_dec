@@ -1,0 +1,120 @@
+# 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 22:27:10 on Apr 02,2024
+# vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
+# -- Compiling package instr_register_pkg
+# -- Compiling module instr_register
+# -- Importing package instr_register_pkg
+# -- Compiling module instr_register_test
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 22:27:10 on Apr 02,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GWR_NR=5 -GRD_NR=5 -GWRITE_ORDER=3 -GTEST_CASE=test_rnd_dec -GREAD_ORDER=2 
+# Start time: 22:27:10 on Apr 02,2024
+# 
+# 
+# ***********************************************************
+# ***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU DON'T ***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# Reseting the instruction register...
+# 
+# Writing values to register stack...
+# La finalul randomize transaction valorile sunt: op_a = -12, op_b = 7, opcode = 1, time =                   36
+# 
+# Writing to register location 0: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# La finalul randomize transaction valorile sunt: op_a = -9, op_b = 1, opcode = 0, time =                   46
+# 
+# Writing to register location 0: 
+#   opcode = 0 (ZERO)
+#   operand_a = -9
+#   operand_b = 1
+# 
+# La finalul randomize transaction valorile sunt: op_a = -15, op_b = 8, opcode = 7, time =                   56
+# 
+# Writing to register location 0: 
+#   opcode = 7 (MOD)
+#   operand_a = -15
+#   operand_b = 8
+# 
+# La finalul randomize transaction valorile sunt: op_a = -8, op_b = 7, opcode = 5, time =                   66
+# 
+# Writing to register location 0: 
+#   opcode = 5 (MULT)
+#   operand_a = -8
+#   operand_b = 7
+# 
+# La finalul randomize transaction valorile sunt: op_a = -9, op_b = 5, opcode = 3, time =                   76
+# 
+# Writing to register location 0: 
+#   opcode = 3 (ADD)
+#   operand_a = -9
+#   operand_b = 5
+# 
+# 
+# Reading back the same register locations written...
+# Read from register location 31: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este x
+# rezultatul este incorect
+# There are 0 passed results and 1 failed results out of 1 total tests.
+# Read from register location 30: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este x
+# rezultatul este incorect
+# There are 0 passed results and 2 failed results out of 2 total tests.
+# Read from register location 29: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este x
+# rezultatul este incorect
+# There are 0 passed results and 3 failed results out of 3 total tests.
+# Read from register location 28: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este x
+# rezultatul este incorect
+# There are 0 passed results and 4 failed results out of 4 total tests.
+# Read from register location 27: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este x
+# rezultatul este incorect
+# There are 0 passed results and 5 failed results out of 5 total tests.
+# 
+# ***********************************************************
+# ***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU DON'T***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# ** Note: $finish    : ../lab01_testbench-interface/instr_register_test.sv(109)
+#    Time: 136 ns  Iteration: 1  Instance: /top/test
+# End time: 22:27:11 on Apr 02,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

@@ -1,0 +1,679 @@
+# 1
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 21:37:35 on Apr 22,2024
+# vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
+# -- Compiling package instr_register_pkg
+# -- Compiling module instr_register
+# -- Importing package instr_register_pkg
+# -- Compiling module instr_register_test
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 21:37:35 on Apr 22,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GWR_NR=50 -GRD_NR=32 -GWRITE_ORDER=2 -GSEED_VAL=1642069 -GTEST_CASE=CASE5 -GREAD_ORDER=2 
+# Start time: 21:37:35 on Apr 22,2024
+# 
+# 
+# ***********************************************************
+# ***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU DON'T ***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# Reseting the instruction register...
+# 
+# Writing values to register stack...
+# La finalul randomize transaction valorile sunt: op_a = 0, op_b = 3, opcode = 3, time =                   36
+# 
+# Writing to register location 31: 
+#   opcode = 3 (ADD)
+#   operand_a = 0
+#   operand_b = 3
+# 
+# La finalul randomize transaction valorile sunt: op_a = 3, op_b = 5, opcode = 5, time =                   46
+# 
+# Writing to register location 30: 
+#   opcode = 5 (MULT)
+#   operand_a = 3
+#   operand_b = 5
+# 
+# La finalul randomize transaction valorile sunt: op_a = -11, op_b = 9, opcode = 1, time =                   56
+# 
+# Writing to register location 29: 
+#   opcode = 1 (PASSA)
+#   operand_a = -11
+#   operand_b = 9
+# 
+# La finalul randomize transaction valorile sunt: op_a = 9, op_b = 11, opcode = 4, time =                   66
+# 
+# Writing to register location 28: 
+#   opcode = 4 (SUB)
+#   operand_a = 9
+#   operand_b = 11
+# 
+# La finalul randomize transaction valorile sunt: op_a = -5, op_b = 11, opcode = 4, time =                   76
+# 
+# Writing to register location 27: 
+#   opcode = 4 (SUB)
+#   operand_a = -5
+#   operand_b = 11
+# 
+# La finalul randomize transaction valorile sunt: op_a = -5, op_b = 15, opcode = 4, time =                   86
+# 
+# Writing to register location 26: 
+#   opcode = 4 (SUB)
+#   operand_a = -5
+#   operand_b = 15
+# 
+# La finalul randomize transaction valorile sunt: op_a = 15, op_b = 12, opcode = 6, time =                   96
+# 
+# Writing to register location 25: 
+#   opcode = 6 (DIV)
+#   operand_a = 15
+#   operand_b = 12
+# 
+# La finalul randomize transaction valorile sunt: op_a = 12, op_b = 3, opcode = 7, time =                  106
+# 
+# Writing to register location 24: 
+#   opcode = 7 (MOD)
+#   operand_a = 12
+#   operand_b = 3
+# 
+# La finalul randomize transaction valorile sunt: op_a = 3, op_b = 12, opcode = 8, time =                  116
+# 
+# Writing to register location 23: 
+#   opcode = 8 (POW)
+#   operand_a = 3
+#   operand_b = 12
+# 
+# La finalul randomize transaction valorile sunt: op_a = 12, op_b = 0, opcode = 6, time =                  126
+# 
+# Writing to register location 22: 
+#   opcode = 6 (DIV)
+#   operand_a = 12
+#   operand_b = 0
+# 
+# La finalul randomize transaction valorile sunt: op_a = 0, op_b = 5, opcode = 6, time =                  136
+# 
+# Writing to register location 21: 
+#   opcode = 6 (DIV)
+#   operand_a = 0
+#   operand_b = 5
+# 
+# La finalul randomize transaction valorile sunt: op_a = 5, op_b = 3, opcode = 2, time =                  146
+# 
+# Writing to register location 20: 
+#   opcode = 2 (PASSB)
+#   operand_a = 5
+#   operand_b = 3
+# 
+# La finalul randomize transaction valorile sunt: op_a = 3, op_b = 7, opcode = 2, time =                  156
+# 
+# Writing to register location 19: 
+#   opcode = 2 (PASSB)
+#   operand_a = 3
+#   operand_b = 7
+# 
+# La finalul randomize transaction valorile sunt: op_a = 7, op_b = 4, opcode = 7, time =                  166
+# 
+# Writing to register location 18: 
+#   opcode = 7 (MOD)
+#   operand_a = 7
+#   operand_b = 4
+# 
+# La finalul randomize transaction valorile sunt: op_a = -12, op_b = 0, opcode = 6, time =                  176
+# 
+# Writing to register location 17: 
+#   opcode = 6 (DIV)
+#   operand_a = -12
+#   operand_b = 0
+# 
+# La finalul randomize transaction valorile sunt: op_a = 0, op_b = 7, opcode = 5, time =                  186
+# 
+# Writing to register location 16: 
+#   opcode = 5 (MULT)
+#   operand_a = 0
+#   operand_b = 7
+# 
+# La finalul randomize transaction valorile sunt: op_a = 7, op_b = 15, opcode = 7, time =                  196
+# 
+# Writing to register location 15: 
+#   opcode = 7 (MOD)
+#   operand_a = 7
+#   operand_b = 15
+# 
+# La finalul randomize transaction valorile sunt: op_a = -1, op_b = 12, opcode = 3, time =                  206
+# 
+# Writing to register location 14: 
+#   opcode = 3 (ADD)
+#   operand_a = -1
+#   operand_b = 12
+# 
+# La finalul randomize transaction valorile sunt: op_a = -4, op_b = 6, opcode = 1, time =                  216
+# 
+# Writing to register location 13: 
+#   opcode = 1 (PASSA)
+#   operand_a = -4
+#   operand_b = 6
+# 
+# La finalul randomize transaction valorile sunt: op_a = -10, op_b = 14, opcode = 5, time =                  226
+# 
+# Writing to register location 12: 
+#   opcode = 5 (MULT)
+#   operand_a = -10
+#   operand_b = 14
+# 
+# La finalul randomize transaction valorile sunt: op_a = -2, op_b = 9, opcode = 7, time =                  236
+# 
+# Writing to register location 11: 
+#   opcode = 7 (MOD)
+#   operand_a = -2
+#   operand_b = 9
+# 
+# La finalul randomize transaction valorile sunt: op_a = -7, op_b = 9, opcode = 3, time =                  246
+# 
+# Writing to register location 10: 
+#   opcode = 3 (ADD)
+#   operand_a = -7
+#   operand_b = 9
+# 
+# La finalul randomize transaction valorile sunt: op_a = -7, op_b = 4, opcode = 4, time =                  256
+# 
+# Writing to register location 9: 
+#   opcode = 4 (SUB)
+#   operand_a = -7
+#   operand_b = 4
+# 
+# La finalul randomize transaction valorile sunt: op_a = 4, op_b = 13, opcode = 0, time =                  266
+# 
+# Writing to register location 8: 
+#   opcode = 0 (ZERO)
+#   operand_a = 4
+#   operand_b = 13
+# 
+# La finalul randomize transaction valorile sunt: op_a = 13, op_b = 14, opcode = 7, time =                  276
+# 
+# Writing to register location 7: 
+#   opcode = 7 (MOD)
+#   operand_a = 13
+#   operand_b = 14
+# 
+# La finalul randomize transaction valorile sunt: op_a = 14, op_b = 10, opcode = 4, time =                  286
+# 
+# Writing to register location 6: 
+#   opcode = 4 (SUB)
+#   operand_a = 14
+#   operand_b = 10
+# 
+# La finalul randomize transaction valorile sunt: op_a = -6, op_b = 0, opcode = 6, time =                  296
+# 
+# Writing to register location 5: 
+#   opcode = 6 (DIV)
+#   operand_a = -6
+#   operand_b = 0
+# 
+# La finalul randomize transaction valorile sunt: op_a = 0, op_b = 2, opcode = 3, time =                  306
+# 
+# Writing to register location 4: 
+#   opcode = 3 (ADD)
+#   operand_a = 0
+#   operand_b = 2
+# 
+# La finalul randomize transaction valorile sunt: op_a = -14, op_b = 13, opcode = 5, time =                  316
+# 
+# Writing to register location 3: 
+#   opcode = 5 (MULT)
+#   operand_a = -14
+#   operand_b = 13
+# 
+# La finalul randomize transaction valorile sunt: op_a = 13, op_b = 6, opcode = 4, time =                  326
+# 
+# Writing to register location 2: 
+#   opcode = 4 (SUB)
+#   operand_a = 13
+#   operand_b = 6
+# 
+# La finalul randomize transaction valorile sunt: op_a = -10, op_b = 4, opcode = 8, time =                  336
+# 
+# Writing to register location 1: 
+#   opcode = 8 (POW)
+#   operand_a = -10
+#   operand_b = 4
+# 
+# La finalul randomize transaction valorile sunt: op_a = 4, op_b = 10, opcode = 8, time =                  346
+# 
+# Writing to register location 0: 
+#   opcode = 8 (POW)
+#   operand_a = 4
+#   operand_b = 10
+# 
+# La finalul randomize transaction valorile sunt: op_a = 10, op_b = 3, opcode = 7, time =                  356
+# 
+# Writing to register location 31: 
+#   opcode = 7 (MOD)
+#   operand_a = 10
+#   operand_b = 3
+# 
+# La finalul randomize transaction valorile sunt: op_a = -13, op_b = 15, opcode = 8, time =                  366
+# 
+# Writing to register location 30: 
+#   opcode = 8 (POW)
+#   operand_a = -13
+#   operand_b = 15
+# 
+# La finalul randomize transaction valorile sunt: op_a = -1, op_b = 13, opcode = 3, time =                  376
+# 
+# Writing to register location 29: 
+#   opcode = 3 (ADD)
+#   operand_a = -1
+#   operand_b = 13
+# 
+# La finalul randomize transaction valorile sunt: op_a = -3, op_b = 4, opcode = 6, time =                  386
+# 
+# Writing to register location 28: 
+#   opcode = 6 (DIV)
+#   operand_a = -3
+#   operand_b = 4
+# 
+# La finalul randomize transaction valorile sunt: op_a = -12, op_b = 5, opcode = 7, time =                  396
+# 
+# Writing to register location 27: 
+#   opcode = 7 (MOD)
+#   operand_a = -12
+#   operand_b = 5
+# 
+# La finalul randomize transaction valorile sunt: op_a = -11, op_b = 0, opcode = 1, time =                  406
+# 
+# Writing to register location 26: 
+#   opcode = 1 (PASSA)
+#   operand_a = -11
+#   operand_b = 0
+# 
+# La finalul randomize transaction valorile sunt: op_a = 0, op_b = 12, opcode = 5, time =                  416
+# 
+# Writing to register location 25: 
+#   opcode = 5 (MULT)
+#   operand_a = 0
+#   operand_b = 12
+# 
+# La finalul randomize transaction valorile sunt: op_a = 12, op_b = 4, opcode = 5, time =                  426
+# 
+# Writing to register location 24: 
+#   opcode = 5 (MULT)
+#   operand_a = 12
+#   operand_b = 4
+# 
+# La finalul randomize transaction valorile sunt: op_a = 4, op_b = 3, opcode = 0, time =                  436
+# 
+# Writing to register location 23: 
+#   opcode = 0 (ZERO)
+#   operand_a = 4
+#   operand_b = 3
+# 
+# La finalul randomize transaction valorile sunt: op_a = 3, op_b = 2, opcode = 5, time =                  446
+# 
+# Writing to register location 22: 
+#   opcode = 5 (MULT)
+#   operand_a = 3
+#   operand_b = 2
+# 
+# La finalul randomize transaction valorile sunt: op_a = -14, op_b = 12, opcode = 8, time =                  456
+# 
+# Writing to register location 21: 
+#   opcode = 8 (POW)
+#   operand_a = -14
+#   operand_b = 12
+# 
+# La finalul randomize transaction valorile sunt: op_a = 12, op_b = 13, opcode = 6, time =                  466
+# 
+# Writing to register location 20: 
+#   opcode = 6 (DIV)
+#   operand_a = 12
+#   operand_b = 13
+# 
+# La finalul randomize transaction valorile sunt: op_a = -3, op_b = 15, opcode = 1, time =                  476
+# 
+# Writing to register location 19: 
+#   opcode = 1 (PASSA)
+#   operand_a = -3
+#   operand_b = 15
+# 
+# La finalul randomize transaction valorile sunt: op_a = 15, op_b = 11, opcode = 0, time =                  486
+# 
+# Writing to register location 18: 
+#   opcode = 0 (ZERO)
+#   operand_a = 15
+#   operand_b = 11
+# 
+# La finalul randomize transaction valorile sunt: op_a = 11, op_b = 11, opcode = 8, time =                  496
+# 
+# Writing to register location 17: 
+#   opcode = 8 (POW)
+#   operand_a = 11
+#   operand_b = 11
+# 
+# La finalul randomize transaction valorile sunt: op_a = 11, op_b = 15, opcode = 6, time =                  506
+# 
+# Writing to register location 16: 
+#   opcode = 6 (DIV)
+#   operand_a = 11
+#   operand_b = 15
+# 
+# La finalul randomize transaction valorile sunt: op_a = 15, op_b = 5, opcode = 5, time =                  516
+# 
+# Writing to register location 15: 
+#   opcode = 5 (MULT)
+#   operand_a = 15
+#   operand_b = 5
+# 
+# La finalul randomize transaction valorile sunt: op_a = 5, op_b = 6, opcode = 0, time =                  526
+# 
+# Writing to register location 14: 
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 6
+# 
+# 
+# Reading back the same register locations written...
+# Read from register location 31: 
+#   opcode = 7 (MOD)
+#   operand_a = 10
+#   operand_b = 3
+#   rezultat = 1
+# 
+# valoarea la instruction_word.rezultat este 1 si valoarea in iw_reg_test este 1
+# rezultatul este corect
+# There are 1 passed results and 0 failed results out of 1 total tests.
+# Read from register location 30: 
+#   opcode = 8 (POW)
+#   operand_a = -13
+#   operand_b = 15
+#   rezultat = -51185893014090757
+# 
+# valoarea la instruction_word.rezultat este -51185893014090757 si valoarea in iw_reg_test este -51185893014090757
+# rezultatul este corect
+# There are 2 passed results and 0 failed results out of 2 total tests.
+# Read from register location 29: 
+#   opcode = 3 (ADD)
+#   operand_a = -1
+#   operand_b = 13
+#   rezultat = 12
+# 
+# valoarea la instruction_word.rezultat este 12 si valoarea in iw_reg_test este 12
+# rezultatul este corect
+# There are 3 passed results and 0 failed results out of 3 total tests.
+# Read from register location 28: 
+#   opcode = 6 (DIV)
+#   operand_a = -3
+#   operand_b = 4
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 4 passed results and 0 failed results out of 4 total tests.
+# Read from register location 27: 
+#   opcode = 7 (MOD)
+#   operand_a = -12
+#   operand_b = 5
+#   rezultat = -2
+# 
+# valoarea la instruction_word.rezultat este -2 si valoarea in iw_reg_test este -2
+# rezultatul este corect
+# There are 5 passed results and 0 failed results out of 5 total tests.
+# Read from register location 26: 
+#   opcode = 1 (PASSA)
+#   operand_a = -11
+#   operand_b = 0
+#   rezultat = -11
+# 
+# valoarea la instruction_word.rezultat este -11 si valoarea in iw_reg_test este -11
+# rezultatul este corect
+# There are 6 passed results and 0 failed results out of 6 total tests.
+# Read from register location 25: 
+#   opcode = 5 (MULT)
+#   operand_a = 0
+#   operand_b = 12
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 7 passed results and 0 failed results out of 7 total tests.
+# Read from register location 24: 
+#   opcode = 5 (MULT)
+#   operand_a = 12
+#   operand_b = 4
+#   rezultat = 48
+# 
+# valoarea la instruction_word.rezultat este 48 si valoarea in iw_reg_test este 48
+# rezultatul este corect
+# There are 8 passed results and 0 failed results out of 8 total tests.
+# Read from register location 23: 
+#   opcode = 0 (ZERO)
+#   operand_a = 4
+#   operand_b = 3
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 9 passed results and 0 failed results out of 9 total tests.
+# Read from register location 22: 
+#   opcode = 5 (MULT)
+#   operand_a = 3
+#   operand_b = 2
+#   rezultat = 6
+# 
+# valoarea la instruction_word.rezultat este 6 si valoarea in iw_reg_test este 6
+# rezultatul este corect
+# There are 10 passed results and 0 failed results out of 10 total tests.
+# Read from register location 21: 
+#   opcode = 8 (POW)
+#   operand_a = -14
+#   operand_b = 12
+#   rezultat = 56693912375296
+# 
+# valoarea la instruction_word.rezultat este 56693912375296 si valoarea in iw_reg_test este 56693912375296
+# rezultatul este corect
+# There are 11 passed results and 0 failed results out of 11 total tests.
+# Read from register location 20: 
+#   opcode = 6 (DIV)
+#   operand_a = 12
+#   operand_b = 13
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 12 passed results and 0 failed results out of 12 total tests.
+# Read from register location 19: 
+#   opcode = 1 (PASSA)
+#   operand_a = -3
+#   operand_b = 15
+#   rezultat = -3
+# 
+# valoarea la instruction_word.rezultat este -3 si valoarea in iw_reg_test este -3
+# rezultatul este corect
+# There are 13 passed results and 0 failed results out of 13 total tests.
+# Read from register location 18: 
+#   opcode = 0 (ZERO)
+#   operand_a = 15
+#   operand_b = 11
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 14 passed results and 0 failed results out of 14 total tests.
+# Read from register location 17: 
+#   opcode = 8 (POW)
+#   operand_a = 11
+#   operand_b = 11
+#   rezultat = 285311670611
+# 
+# valoarea la instruction_word.rezultat este 285311670611 si valoarea in iw_reg_test este 285311670611
+# rezultatul este corect
+# There are 15 passed results and 0 failed results out of 15 total tests.
+# Read from register location 16: 
+#   opcode = 6 (DIV)
+#   operand_a = 11
+#   operand_b = 15
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 16 passed results and 0 failed results out of 16 total tests.
+# Read from register location 15: 
+#   opcode = 5 (MULT)
+#   operand_a = 15
+#   operand_b = 5
+#   rezultat = 75
+# 
+# valoarea la instruction_word.rezultat este 75 si valoarea in iw_reg_test este 75
+# rezultatul este corect
+# There are 17 passed results and 0 failed results out of 17 total tests.
+# Read from register location 14: 
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 6
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 18 passed results and 0 failed results out of 18 total tests.
+# Read from register location 13: 
+#   opcode = 1 (PASSA)
+#   operand_a = -4
+#   operand_b = 6
+#   rezultat = -4
+# 
+# valoarea la instruction_word.rezultat este -4 si valoarea in iw_reg_test este -4
+# rezultatul este corect
+# There are 19 passed results and 0 failed results out of 19 total tests.
+# Read from register location 12: 
+#   opcode = 5 (MULT)
+#   operand_a = -10
+#   operand_b = 14
+#   rezultat = -140
+# 
+# valoarea la instruction_word.rezultat este -140 si valoarea in iw_reg_test este -140
+# rezultatul este corect
+# There are 20 passed results and 0 failed results out of 20 total tests.
+# Read from register location 11: 
+#   opcode = 7 (MOD)
+#   operand_a = -2
+#   operand_b = 9
+#   rezultat = -2
+# 
+# valoarea la instruction_word.rezultat este -2 si valoarea in iw_reg_test este -2
+# rezultatul este corect
+# There are 21 passed results and 0 failed results out of 21 total tests.
+# Read from register location 10: 
+#   opcode = 3 (ADD)
+#   operand_a = -7
+#   operand_b = 9
+#   rezultat = 2
+# 
+# valoarea la instruction_word.rezultat este 2 si valoarea in iw_reg_test este 2
+# rezultatul este corect
+# There are 22 passed results and 0 failed results out of 22 total tests.
+# Read from register location 9: 
+#   opcode = 4 (SUB)
+#   operand_a = -7
+#   operand_b = 4
+#   rezultat = -11
+# 
+# valoarea la instruction_word.rezultat este -11 si valoarea in iw_reg_test este -11
+# rezultatul este corect
+# There are 23 passed results and 0 failed results out of 23 total tests.
+# Read from register location 8: 
+#   opcode = 0 (ZERO)
+#   operand_a = 4
+#   operand_b = 13
+#   rezultat = 0
+# 
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 24 passed results and 0 failed results out of 24 total tests.
+# Read from register location 7: 
+#   opcode = 7 (MOD)
+#   operand_a = 13
+#   operand_b = 14
+#   rezultat = 13
+# 
+# valoarea la instruction_word.rezultat este 13 si valoarea in iw_reg_test este 13
+# rezultatul este corect
+# There are 25 passed results and 0 failed results out of 25 total tests.
+# Read from register location 6: 
+#   opcode = 4 (SUB)
+#   operand_a = 14
+#   operand_b = 10
+#   rezultat = 4
+# 
+# valoarea la instruction_word.rezultat este 4 si valoarea in iw_reg_test este 4
+# rezultatul este corect
+# There are 26 passed results and 0 failed results out of 26 total tests.
+# Read from register location 5: 
+#   opcode = 6 (DIV)
+#   operand_a = -6
+#   operand_b = 0
+#   rezultat = 0
+# 
+# a fost intampinata o exceptie, divizie cu 0
+# valoarea la instruction_word.rezultat este 0 si valoarea in iw_reg_test este 0
+# rezultatul este corect
+# There are 27 passed results and 0 failed results out of 27 total tests.
+# Read from register location 4: 
+#   opcode = 3 (ADD)
+#   operand_a = 0
+#   operand_b = 2
+#   rezultat = 2
+# 
+# valoarea la instruction_word.rezultat este 2 si valoarea in iw_reg_test este 2
+# rezultatul este corect
+# There are 28 passed results and 0 failed results out of 28 total tests.
+# Read from register location 3: 
+#   opcode = 5 (MULT)
+#   operand_a = -14
+#   operand_b = 13
+#   rezultat = -182
+# 
+# valoarea la instruction_word.rezultat este -182 si valoarea in iw_reg_test este -182
+# rezultatul este corect
+# There are 29 passed results and 0 failed results out of 29 total tests.
+# Read from register location 2: 
+#   opcode = 4 (SUB)
+#   operand_a = 13
+#   operand_b = 6
+#   rezultat = 7
+# 
+# valoarea la instruction_word.rezultat este 7 si valoarea in iw_reg_test este 7
+# rezultatul este corect
+# There are 30 passed results and 0 failed results out of 30 total tests.
+# Read from register location 1: 
+#   opcode = 8 (POW)
+#   operand_a = -10
+#   operand_b = 4
+#   rezultat = 10000
+# 
+# valoarea la instruction_word.rezultat este 10000 si valoarea in iw_reg_test este 10000
+# rezultatul este corect
+# There are 31 passed results and 0 failed results out of 31 total tests.
+# Read from register location 0: 
+#   opcode = 8 (POW)
+#   operand_a = 4
+#   operand_b = 10
+#   rezultat = 1048576
+# 
+# valoarea la instruction_word.rezultat este 1048576 si valoarea in iw_reg_test este 1048576
+# rezultatul este corect
+# There are 32 passed results and 0 failed results out of 32 total tests.
+# 
+# ***********************************************************
+# ***  THIS IS A SELF-CHECKING TESTBENCH (YET).  YOU DON'T***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# ** Note: $finish    : ../lab01_testbench-interface/instr_register_test.sv(114)
+#    Time: 856 ns  Iteration: 1  Instance: /top/test
+# End time: 21:37:36 on Apr 22,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
